@@ -18,6 +18,11 @@ jobs:
     permissions:
         packages: write
     uses: ./.github/workflows/docker-build-push.yaml
+
+  call-deploy-helm:
+    needs: [call-build, call-test]
+    secrets: inherit
+    uses: ./.github/workflows/deploy-helm.yml
     
   call-test:
     uses: ./.github/workflows/test.yaml
@@ -26,10 +31,10 @@ jobs:
     uses: ./.github/workflows/linter.yaml
 
   call-deploy:
-    needs: [call-docker-build-push]
+    needs: [call-deploy-helm, call-docker-build-push]
     secrets: inherit
     uses: ./.github/workflows/deploy.yml
-
+    
   call-functinal-test:
     needs: [call-deploy]
     secrets: inherit
