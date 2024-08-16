@@ -13,5 +13,5 @@ jobs:
         with:
           name: code
           path: .
-      - run: echo "${{ secrets.KUBECONFIG }}" | base64 -d > kubeconfig
-      - run: kubectl --kubeconfig kubeconfig get nodes
+      - name: Deploying manifests
+        run: bash cd/deploy.sh ${{ secrets.KUBECONFIG }}

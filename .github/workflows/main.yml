@@ -23,5 +23,6 @@ jobs:
 
   call-deploy:
     needs: [call-docker-build-push]
+    secrets: inherit
     uses: ./.github/workflows/deploy.yml
     
