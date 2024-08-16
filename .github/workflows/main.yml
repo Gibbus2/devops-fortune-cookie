@@ -25,4 +25,9 @@ jobs:
     needs: [call-docker-build-push]
     secrets: inherit
     uses: ./.github/workflows/deploy.yml
+
+  call-functinal-test:
+    needs: [call-deploy]
+    secrets: inherit
+    uses: ./.github/workflows/functinal-test.yml
     
