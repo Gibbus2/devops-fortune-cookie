@@ -13,4 +13,4 @@ jobs:
           name: code
           path: .
       - name: Deploying manifests
-        run: bash cd/functinal-test.sh ${{ secrets.KUBECONFIG }}
+        run: bash ci/functinal-test.sh ${{ secrets.KUBECONFIG }}
