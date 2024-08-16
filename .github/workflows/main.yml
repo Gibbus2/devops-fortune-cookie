@@ -14,6 +14,7 @@ jobs:
     uses: ./.github/workflows/build.yaml
 
   call-docker-build-push:
+    needs: [call-build, call-test]
     permissions:
         packages: write
     uses: ./.github/workflows/docker-build-push.yaml
