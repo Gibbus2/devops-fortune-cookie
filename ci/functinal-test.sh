@@ -16,4 +16,7 @@ elif [ "$status" -eq 7 ]; then
 elif [ "$status" -eq 28 ]; then
     echo "Operation timeout (cURL error 28). Exiting."
     exit 1
+elif [ "$status" -eq 000 ]; then
+    echo "Unknwon return"
+    exit 1
 fi
