@@ -17,3 +17,9 @@ spec:
       - name: backend
         image: ghcr.io/gibbus2/backend-app:latest
         resources: {}
+        env:
+          - name: REDIS_DNS
+            valueFrom:
+              configMapKeyRef:
+                name: configmap
+                key: REDIS_DNS

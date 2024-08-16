@@ -4,3 +4,4 @@ metadata:
   name: configmap
 data:
   BACKEND_DNS: 'service-backend'
+  REDIS_DNS: 'redis-master'

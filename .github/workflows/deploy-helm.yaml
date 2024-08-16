@@ -1,10 +1,10 @@
-name: functinal-test
+name: deploy-helm
 
 on:
   workflow_call:
 
 jobs:
-  functinal-test:
+  deploy-helm:
     runs-on: ubuntu-latest
     steps:
       - name: Downloading artifact
@@ -13,4 +13,4 @@ jobs:
           name: code
           path: .
       - name: Deploying manifests
-        run: bash ci/functinal-test.sh ${{ secrets.KUBECONFIG }}
+        run: bash helm/deploy.sh ${{ secrets.KUBECONFIG }}
