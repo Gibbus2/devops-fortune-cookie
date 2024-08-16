@@ -1,10 +1,10 @@
-name: test
+name: functinal-test
 
 on:
   workflow_call:
 
 jobs:
-  test:
+  functinal-test:
     runs-on: ubuntu-latest
     steps:
       - name: Downloading artifact
