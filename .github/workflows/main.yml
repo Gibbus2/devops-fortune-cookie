@@ -21,6 +21,9 @@ jobs:
     
   call-test:
     uses: ./.github/workflows/test.yaml
+    
+  call-linter:
+    uses: ./.github/workflows/linter.yaml
 
   call-deploy:
     needs: [call-docker-build-push]
