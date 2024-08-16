@@ -22,7 +22,7 @@ jobs:
   call-deploy-helm:
     needs: [call-build, call-test]
     secrets: inherit
-    uses: ./.github/workflows/deploy-helm.yml
+    uses: ./.github/workflows/deploy-helm.yaml
     
   call-test:
     uses: ./.github/workflows/test.yaml
