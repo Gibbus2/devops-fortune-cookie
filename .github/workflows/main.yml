@@ -14,15 +14,24 @@ jobs:
     uses: ./.github/workflows/build.yaml
 
   call-docker-build-push:
+    needs: [call-build, call-test]
     permissions:
         packages: write
     uses: ./.github/workflows/docker-build-push.yaml
     
   call-test:
     uses: ./.github/workflows/test.yaml
+    
+  call-linter:
+    uses: ./.github/workflows/linter.yaml
 
   call-deploy:
     needs: [call-docker-build-push]
     secrets: inherit
     uses: ./.github/workflows/deploy.yml
+
+  call-functinal-test:
+    needs: [call-deploy]
+    secrets: inherit
+    uses: ./.github/workflows/functinal-test.yaml
     

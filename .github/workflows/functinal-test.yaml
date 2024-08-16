@@ -1,0 +1,16 @@
+name: test
+
+on:
+  workflow_call:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Downloading artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: code
+          path: .
+      - name: Deploying manifests
+        run: bash ci/functinal-test.sh ${{ secrets.KUBECONFIG }}
