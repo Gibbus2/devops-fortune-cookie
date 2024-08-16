@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-frontend
+  labels:
+    app: deployment-frontend
+spec:
+  selector:
+    matchLabels:
+      app: deployment-frontend
+  template:
+    metadata:
+      labels:
+        app: deployment-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: ghcr.io/gibbus2/frontend-app:latest
+        resources: {}
+        env:
+          - name: BACKEND_DNS
+            valueFrom:
+              configMapKeyRef:
+                name: configmap
+                key: BACKEND_DNS

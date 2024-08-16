@@ -20,4 +20,8 @@ jobs:
     
   call-test:
     uses: ./.github/workflows/test.yaml
+
+  call-deploy:
+    needs: [call-docker-build-push]
+    uses: ./.github/workflows/deploy.yml
     
