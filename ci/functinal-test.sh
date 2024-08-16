@@ -1,5 +1,6 @@
 echo $1 | base64 -d > kubeconfig
-kubectl --kubeconfig kubeconfig port-forward pod/frontend 8080:8080
+kubectl --kubeconfig kubeconfig port-forward svc/service-frontend 8080:8080 &
+sleep 5
 response=$(curl --write-out "%{http_code}" --silent --output /dev/null localhost:8080)
 echo "HTTP response code: $response"
 status=$?
